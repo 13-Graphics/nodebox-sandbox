@@ -29,6 +29,9 @@
         <node name="lookup2" position="-2.00,2.00" prototype="data.lookup">
             <port name="key" type="string" value="Depth"/>
         </node>
+        <node name="lookup3" position="-7.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="Magnitude"/>
+        </node>
         <node name="multiply1" position="8.00,6.00" prototype="math.multiply"/>
         <node name="range1" position="10.00,4.00" prototype="math.range"/>
         <node name="rect1" position="-2.00,6.00" prototype="corevector.rect">
@@ -66,5 +69,6 @@
         <conn input="combine1.list1" output="textpath1"/>
         <conn input="rotate1.angle" output="multiply1"/>
         <conn input="rotate1.shape" output="combine1"/>
+        <conn input="lookup3.list" output="import_csv1"/>
     </node>
 </ndbx>
