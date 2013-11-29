@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="17" type="file" uuid="8aa7adca-5912-4a0a-91d8-b7776237cde1">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="translate1">
+        <node name="colorize1" position="5.00,4.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#d00000ff"/>
+            <port name="stroke" type="color" value="#b3000065"/>
+        </node>
+        <node name="divide1" position="-1.00,0.00" prototype="math.divide">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="divide2" position="-4.00,0.00" prototype="math.divide">
+            <port name="value2" type="float" value="-7.0"/>
+        </node>
+        <node name="grid1" position="1.00,2.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="28"/>
+            <port name="rows" type="int" value="9"/>
+            <port name="width" type="float" value="719.0"/>
+            <port name="height" type="float" value="707.0"/>
+        </node>
+        <node name="hsb_color1" position="8.00,2.00" prototype="color.hsb_color">
+            <port name="saturation" type="float" value="219.0"/>
+            <port name="brightness" type="float" value="213.0"/>
+            <port name="alpha" type="float" value="271.0"/>
+        </node>
+        <node name="polygon1" position="3.00,-1.00" prototype="corevector.polygon">
+            <port name="position" type="point" value="-11.00,-2.00"/>
+            <port name="sides" type="int" value="12"/>
+        </node>
+        <node name="rect1" position="1.00,5.00" prototype="corevector.rect"/>
+        <node name="sample1" position="-1.00,-2.00" prototype="math.sample">
+            <port name="amount" type="int" value="28"/>
+            <port name="start" type="float" value="39.0"/>
+            <port name="end" type="float" value="117.0"/>
+        </node>
+        <node name="sample2" position="8.00,-2.00" prototype="math.sample">
+            <port name="amount" type="int" value="13"/>
+            <port name="start" type="float" value="58.0"/>
+            <port name="end" type="float" value="158.0"/>
+        </node>
+        <node name="sample3" position="-4.00,-2.00" prototype="math.sample">
+            <port name="amount" type="int" value="33"/>
+            <port name="start" type="float" value="75.0"/>
+            <port name="end" type="float" value="126.0"/>
+        </node>
+        <node name="translate1" position="-5.00,7.00" prototype="corevector.translate"/>
+        <conn input="translate1.translate" output="grid1"/>
+        <conn input="translate1.shape" output="colorize1"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="hsb_color1.hue" output="sample2"/>
+        <conn input="divide1.value1" output="sample1"/>
+        <conn input="colorize1.shape" output="rect1"/>
+        <conn input="divide2.value1" output="sample3"/>
+        <conn input="rect1.width" output="divide2"/>
+        <conn input="rect1.height" output="divide1"/>
+    </node>
+</ndbx>
