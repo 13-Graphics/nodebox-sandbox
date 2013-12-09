@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="17" type="file" uuid="8f94a062-0f8a-4e00-a95f-9784893b7609">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="combine1" position="2.00,4.00" prototype="list.combine"/>
+        <node name="grid1" position="11.00,3.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="18"/>
+            <port name="rows" type="int" value="22"/>
+            <port name="height" type="float" value="380.0"/>
+        </node>
+        <node name="number1" position="2.00,6.00" prototype="math.number"/>
+        <node name="pi1" position="8.00,1.00" prototype="math.pi"/>
+        <node name="quad_curve1" position="8.00,5.00" prototype="corevector.quad_curve"/>
+        <node name="range1" position="11.00,1.00" prototype="math.range"/>
+        <node name="rect1" position="1.00,1.00" prototype="corevector.rect">
+            <port name="position" type="point" value="192.00,124.00"/>
+            <port name="width" type="float" value="120.0"/>
+            <port name="height" type="float" value="450.0"/>
+        </node>
+        <node name="rect2" prototype="corevector.rect">
+            <port name="position" type="point" value="-81.00,111.00"/>
+        </node>
+        <node name="wave1" position="8.00,3.00" prototype="math.wave"/>
+        <conn input="combine1.list1" output="rect1"/>
+        <conn input="combine1.list2" output="rect2"/>
+        <conn input="wave1.max" output="pi1"/>
+        <conn input="quad_curve1.t" output="wave1"/>
+        <conn input="wave1.min" output="range1"/>
+        <conn input="quad_curve1.point2" output="grid1"/>
+    </node>
+</ndbx>

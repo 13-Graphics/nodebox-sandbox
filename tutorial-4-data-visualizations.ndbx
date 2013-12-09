@@ -53,7 +53,7 @@
             <conn input="resample1.points" output="count1"/>
             <conn input="align1.shape" output="rect1"/>
         </node>
-        <node name="data02" position="-1.00,3.00" prototype="core.network" renderedChild="translate1">
+        <node name="data02" position="-1.00,3.00" prototype="core.network" renderedChild="resample1">
             <node name="align1" position="-7.00,4.00" prototype="corevector.align">
                 <port name="position" type="point" value="480.00,0.00"/>
                 <port name="halign" type="string" value="right"/>
@@ -89,7 +89,7 @@
                 <port name="key" type="string" value="Magnitude"/>
             </node>
             <node name="make_point1" position="-10.00,7.00" prototype="corevector.make_point"/>
-            <node name="multiply1" position="1.00,1.00" prototype="math.multiply"/>
+            <node name="multiply1" position="5.00,2.00" prototype="math.multiply"/>
             <node name="multiply2" position="-12.00,1.00" prototype="math.multiply">
                 <port name="value2" type="float" value="7.0"/>
             </node>
